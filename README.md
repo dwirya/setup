@@ -17,3 +17,9 @@ Shared files for my Mac & Linux systems. This was written on Mac, for Linux, nee
 
 ### Go modules
 - [fzf](https://github.com/junegunn/fzf): `go install github.com/junegunn/fzf@master`
+
+## Linux
+
+In Linux, opening terminal is not a login session and therefore `.zprofile` will not be invoked (but will be in MacOS).
+
+Hence, for Linux, consider migrating the code in `.zprofile` onto `.zshrc`
