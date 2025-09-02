@@ -1,0 +1,48 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+$username\
+$directory\
+$git_branch\
+$git_metrics\
+$git_status\
+$character"""
+
+right_format = """
+$pulumi\
+$cmd_duration
+"""
+
+# Replace the '❯' symbol in the prompt with '➜'
+[character] # The name of the module we are configuring is 'character'
+success_symbol = '[➜](bold green)'
+error_symbol = '[✗](bold red)'
+format = '$symbol '
+
+[directory]
+style = 'bold #339AF0'
+
+[git_branch]
+format = '[$branch(:$remote_branch)]($style) '
+style = 'bold #F02981'
+
+[git_status]
+use_git_executable = true
+format = '([$all_status$ahead_behind]($style) )'
+ahead = '[⇡${count}](bold #6BD731)'
+behind = '[⇣${count}](bold #6BD731)'
+diverged = '⇕⇡${ahead_count}⇣${behind_count}'
+untracked = '?${count}'
+modified = '[!${count}](bold #FFB01B)'
+staged = '[+${count}](bold #6BD731)'
+stashed = ''
+renamed = '[»${count}](bold #20A2FE)'
+deleted = '✘${count}'
+
+# Disable the package module, hiding it from the prompt completely
+[package]
+disabled = true
+
+[pulumi]
+format = '[$stack]($style) '

@@ -1,0 +1,19 @@
+# Start configuration added by Zim install {{{
+
+# Load environment and input-related settings first
+zmodule environment
+zmodule input
+zmodule utility
+zmodule exa
+
+# Load core utilities and completions
+zmodule zsh-users/zsh-completions --fpath src
+zmodule completion
+zmodule fzf
+
+# Modules that must be initialised last
+zmodule zsh-users/zsh-syntax-highlighting
+zmodule zsh-users/zsh-history-substring-search
+zmodule zsh-users/zsh-autosuggestions
+
+# }}} End configuration added by Zim install
