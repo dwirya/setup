@@ -55,7 +55,7 @@ if [ -f "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path
   source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
 fi
 
-fzed() (
+zedf() (
   RELOAD='reload:rg --column --color=always --smart-case {q} || :'
   OPENER='zed {1}:+{2}'
   fzf --disabled --ansi --multi \
