@@ -23,3 +23,8 @@ Shared files for my Mac & Linux systems. This was written on Mac, for Linux, nee
 In Linux, opening terminal is not a login session and therefore `.zprofile` will not be invoked (but will be in MacOS).
 
 Hence, for Linux, consider migrating the code in `.zprofile` onto `.zshrc`
+
+### PopOS COSMIC
+`fdfind` is already built-in, so do the following steps:
+- Remove `zmodule fzf` from `.zimrc`
+- Add `source <(fzf --zsh)` to end of `.zshrc`
