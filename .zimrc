@@ -5,8 +5,6 @@ zmodule environment
 zmodule input
 zmodule utility
 
-zmodule fzf
-
 # Completions (deferred)
 zmodule zsh-users/zsh-completions --fpath src
 zmodule completion

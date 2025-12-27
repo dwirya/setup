@@ -48,6 +48,7 @@ unset key
 
 zsh-defer _evalcache /opt/homebrew/bin/brew shellenv
 zsh-defer _evalcache /opt/homebrew/bin/mise activate zsh
+zsh-defer _evalcache fzf --zsh
 zsh-defer _evalcache zoxide init zsh
 
 # https://stackoverflow.com/questions/46144267/bash-gcloud-command-not-found-on-mac
