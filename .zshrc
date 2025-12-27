@@ -46,34 +46,14 @@ for key ('j') bindkey -M vicmd ${key} history-substring-search-down
 unset key
 # }}} End configuration added by Zim install
 
-eval "$(starship init zsh)"
+zsh-defer _evalcache /opt/homebrew/bin/brew shellenv
+zsh-defer _evalcache /opt/homebrew/bin/mise activate zsh
+zsh-defer _evalcache zoxide init zsh
 
 # https://stackoverflow.com/questions/46144267/bash-gcloud-command-not-found-on-mac
-if [ -f "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc" ]; then
-  source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
-  source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
+if [ -f "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc" ]; then
+  zsh-defer source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
+  zsh-defer source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
 fi
 
-zedf() (
-  RELOAD='reload:rg --column --color=always --smart-case {q} || :'
-  OPENER='zed "$(cd $(dirname {1}) && git rev-parse --show-toplevel 2>/dev/null)" {1}:{2}'
-  fzf --disabled --ansi --multi \
-      --tail 10000 \
-      --bind "start:$RELOAD" --bind "change:$RELOAD" \
-      --bind "enter:become:$OPENER" \
-      --bind "ctrl-o:execute:$OPENER" \
-      --bind 'alt-a:select-all,alt-d:deselect-all,ctrl-/:toggle-preview' \
-      --delimiter : \
-      --preview 'bat --style=full --color=always --highlight-line {2} {1}' \
-      --preview-window '~4,+{2}+4/3,<80(up)' \
-      --query "$*"
-)
-
-z() {
-  local dir=$(
-    zoxide query --list --score |
-    fzf --height 40% --layout reverse --info inline \
-        --nth 2.. --tac --no-sort --query "$*" \
-        --bind 'enter:become:echo {2..}'
-  ) && cd "$dir"
-}
+_evalcache starship init zsh

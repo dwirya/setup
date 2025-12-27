@@ -1,17 +1,21 @@
 # Start configuration added by Zim install {{{
 
-# Load environment and input-related settings first
+# Must be initialised first
 zmodule environment
 zmodule input
 zmodule utility
-zmodule exa
 
-# Load core utilities and completions
-zmodule zsh-users/zsh-completions --fpath src
-zmodule completion
 zmodule fzf
 
-# Modules that must be initialised last
+# Completions (deferred)
+zmodule zsh-users/zsh-completions --fpath src
+zmodule completion
+
+# Performance helpers
+zmodule mroth/evalcache
+zmodule romkatv/zsh-defer --use degit
+
+# Must be last, presentation layer
 zmodule zsh-users/zsh-syntax-highlighting
 zmodule zsh-users/zsh-history-substring-search
 zmodule zsh-users/zsh-autosuggestions

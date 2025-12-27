@@ -28,7 +28,6 @@ format = '[$branch(:$remote_branch)]($style) '
 style = 'bold #F02981'
 
 [git_status]
-use_git_executable = true
 format = '([$all_status$ahead_behind]($style) )'
 ahead = '[⇡${count}](bold #6BD731)'
 behind = '[⇣${count}](bold #6BD731)'
