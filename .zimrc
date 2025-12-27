@@ -13,6 +13,9 @@ zmodule completion
 zmodule mroth/evalcache
 zmodule romkatv/zsh-defer --use degit
 
+# Must be after compinit but before autosuggestions
+zmodule Aloxaf/fzf-tab --use degit
+
 # Must be last, presentation layer
 zmodule zsh-users/zsh-syntax-highlighting
 zmodule zsh-users/zsh-history-substring-search

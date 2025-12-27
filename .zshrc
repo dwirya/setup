@@ -50,6 +50,7 @@ zsh-defer _evalcache /opt/homebrew/bin/brew shellenv
 zsh-defer _evalcache /opt/homebrew/bin/mise activate zsh
 zsh-defer _evalcache fzf --zsh
 zsh-defer _evalcache zoxide init zsh
+zsh-defer source ~/.zim/modules/fzf-tab/fzf-tab.plugin.zsh
 
 # https://stackoverflow.com/questions/46144267/bash-gcloud-command-not-found-on-mac
 if [ -f "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc" ]; then
